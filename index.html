@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dylan Leon CS Capstone ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f1e2e;
+      --slate:  #1e3248;
+      --gold:   #c9a84c;
+      --gold-lt:#e8c97a;
+      --offwhite:#f5f2eb;
+      --muted:  #8a9bb0;
+      --text:   #e8e4dc;
+      --card:   #192840;
+      --radius: 6px;
+      --max:    860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,30,46,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      padding: 0 2rem;
+    }
+    nav .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    nav .brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    nav ul { list-style: none; display: flex; gap: 1.8rem; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold-lt); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--offwhite);
+      margin-bottom: 1.4rem;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+    .pill {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section { max-width: var(--max); margin: 0 auto; padding: 4rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--offwhite);
+      margin-bottom: 1.4rem;
+      line-height: 1.25;
+    }
+    p { color: var(--muted); margin-bottom: 1rem; max-width: 680px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── SELF-ASSESSMENT ── */
+    .assessment-body p { color: #b8c4d0; }
+
+    /* ── MILESTONE CARDS ── */
+    .cards { display: grid; gap: 1.2rem; margin-top: 2rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.8rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(201,168,76,0.35); }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--offwhite);
+    }
+    .card-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card p { color: #8a9bb0; font-size: 0.92rem; margin-bottom: 1rem; max-width: 100%; }
+    .card-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius);
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline {
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+    }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+
+    /* ── CODE REVIEW ── */
+    .review-box {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      margin-top: 1.6rem;
+    }
+    .review-box p { color: #8a9bb0; font-size: 0.92rem; max-width: 100%; }
+
+    /* ── OUTCOMES TABLE ── */
+    .outcomes { margin-top: 1.8rem; display: grid; gap: 0.8rem; }
+    .outcome {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .outcome-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      min-width: 28px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .outcome-text { font-size: 0.88rem; color: #8a9bb0; line-height: 1.6; }
+    .outcome-text strong { color: var(--offwhite); font-weight: 500; display: block; margin-bottom: 0.2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.8rem;
+      color: rgba(138,155,176,0.5);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero, .card, .outcome, .review-box {
+      animation: fadeUp 0.5s ease both;
+    }
+    .card:nth-child(2) { animation-delay: 0.08s; }
+    .card:nth-child(3) { animation-delay: 0.16s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a class="brand" href="#">Dylan Leon</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#review">Code Review</a></li>
+      <li><a href="#artifacts">Artifacts</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO / SELF-ASSESSMENT -->
+<div class="hero">
+  <div class="hero-label">CS 499 Capstone ePortfolio</div>
+  <h1>Dylan Leon<br/>Computer Science</h1>
+  <p class="hero-sub">
+    Senior DevOps Engineer at Raymond James Financial transitioning into
+    AI/ML engineering. B.S. Computer Science candidate, Southern New Hampshire University.
+  </p>
+  <div class="pill-row">
+    <span class="pill">Kotlin · Android</span>
+    <span class="pill">Terraform · AWS</span>
+    <span class="pill">Kubernetes · EKS</span>
+    <span class="pill">Python · CI/CD</span>
+    <span class="pill">AI/ML Engineering</span>
+  </div>
+</div>
+
+<!-- PROFESSIONAL SELF ASSESSMENT -->
+<section id="about">
+  <div class="section-label">Professional Self Assessment</div>
+  <h2>Who I Am &amp; What I've Built</h2>
+  <div class="assessment-body">
+    <p>
+      My path through the Computer Science program at SNHU has given me exposure and practice with full stack development.
+      I came into the program as a working DevOps Engineer with hands on experience in cloud infrastructure,
+      container orchestration, and CI/CD pipeline design. However, without the formal computer science foundation
+      that separates engineers who know how to operate systems from engineers who know how to design and
+      evaluate them. The coursework closed that gap in measurable ways.
+    </p>
+    <p>
+      In data structures and algorithms, CS 260 gave me the analytical vocabulary to reason about
+      time and space complexity, which I applied directly in this capstone by identifying and eliminating
+      an O(n)+O(n) double query pattern in a database access layer and replacing it with a single indexed
+      JOIN query. In software engineering, CS 360 and CS 320 gave me grounding in mobile architecture
+      and software testing practices that informed the MVVM refactor I performed on this capstone's
+      Android artifact. Moving from a monolithic 350 line Activity to a clean separation of ViewModel,
+      stateless composables, and a UI state data class. In secure coding, CS 405 introduced the adversarial
+      mindset that led me to identify plaintext password storage as the critical vulnerability it is and
+      implement BCrypt hashing as the correct mitigation. In machine learning, CS 370's deep Q-learning
+      and reinforcement learning coursework shifted my long term career target from DevOps systems
+      engineering toward AI/ML engineering.
+    </p>
+    <p>
+      Collaborating in team environments has been a consistent thread across the program. In CS 250,
+      working within an Agile Scrum simulation reinforced practices I use daily at Raymond James.
+      Sprint planning, retrospectives, and the discipline of breaking large features into deliverable
+      increments. Communicating with stakeholders, translating technical decisions into language that
+      non-technical audiences can evaluate. These skills have been developed through the written narratives, code
+      review, and professional self assessment work in this capstone. Security thinking runs through
+      all three of my artifact enhancements. From defensive programming checklist items in the code
+      review to the BCrypt implementation in the databases milestone.
+    </p>
+    <p>
+      The three enhancements in this portfolio tell a single coherent story about what it means to
+      take a functional piece of software and make it production ready across three dimensions.
+      The software design enhancement demonstrates architectural judgment, knowing when a working
+      monolith needs to be broken apart and understanding the specific pattern (MVVM) that fits
+      Android's component lifecycle. The algorithms enhancement demonstrates analytical thinking,
+      recognizing an inefficient query pattern, reasoning about its complexity, and redesigning it
+      with indexed JOIN queries that scale. The databases enhancement demonstrates security engineering,
+      identifying a credential storage vulnerability, selecting the appropriate mitigation (BCrypt
+      at cost factor 12), and migrating a legacy database layer to a modern, compiler validated ORM
+      without breaking the layers above it. Taken together, they represent someone who works at the
+      intersection of infrastructure depth and software quality, and who is building toward the AI/ML 
+      systems work that sits at that intersection's frontier.
+    </p>
+  </div>
+</section>
+
+<!-- CODE REVIEW -->
+<section id="review">
+  <div class="section-label">Informal Code Review</div>
+  <h2>Pre Enhancement Walkthrough</h2>
+  <p>
+    Before beginning any enhancements, I conducted a structured code review of the original
+    inventory management application covering all three enhancement categories. The review
+    identifies existing functionality, calls out weaknesses against the code review checklist,
+    and explains the planned enhancements for each category.
+  </p>
+  <div class="review-box">
+    <p>
+      <strong style="color:var(--offwhite); display:block; margin-bottom:0.5rem;">
+        Code Review Video: Android Inventory Management App
+      </strong>
+      The walkthrough covers the monolithic InventoryActivity structure, the double-query
+      database pattern, plaintext password storage, and the planned MVVM refactor, JOIN
+      optimization, and Room + BCrypt migration.
+    </p>
+    <div style="margin-top:1.2rem;">
+      <a class="btn btn-gold" href="https://youtu.be/a1gDqJNZZII" target="_blank">Watch Code Review</a>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIFACTS -->
+<section id="artifacts">
+  <div class="section-label">Enhanced Artifacts</div>
+  <h2>Three Enhancements, One Artifact</h2>
+  <p>
+    All three enhancements target the same Android inventory management application. A Kotlin
+    and Jetpack Compose app built in a prior course, demonstrating growth across software design,
+    algorithms, and databases using a single cohesive codebase.
+  </p>
+
+  <div class="cards">
+
+    <!-- Milestone 2 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Software Design &amp; Engineering</div>
+        <span class="card-tag">Milestone Two</span>
+      </div>
+      <p>
+        Refactored a 350 line monolithic Activity into MVVM architecture. Created
+        <code style="color:var(--gold-lt)">InventoryViewModel</code> with StateFlow,
+        extracted all composables to a stateless <code style="color:var(--gold-lt)">InventoryScreen.kt</code>,
+        introduced <code style="color:var(--gold-lt)">InventoryUiState</code> as a single
+        coherent state snapshot, and reduced <code style="color:var(--gold-lt)">InventoryActivity</code>
+        to bootstrapping only. The ViewModel survives configuration changes automatically,
+        eliminating data loss on screen rotation.
+      </p>
+      <p><em style="color:#6a7d94;">Course outcomes addressed: 3, 4</em></p>
+      <div class="card-links">
+        <a class="btn btn-gold" href="https://github.com/Villon43/villon34.github.io/blob/main/narratives/milestone2_narrative.docx" target="_blank">Read Narrative</a>
+      </div>
+    </div>
+
+    <!-- Milestone 3 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Algorithms &amp; Data Structures</div>
+        <span class="card-tag">Milestone Three</span>
+      </div>
+      <p>
+        Eliminated a double query pattern where every inventory read incurred two sequential
+        database opens. Replaced with single JOIN queries that resolve username and fetch
+        inventory in one pass. Added three explicit indexes on
+        <code style="color:var(--gold-lt)">user_id</code>,
+        <code style="color:var(--gold-lt)">item_name</code>, and
+        <code style="color:var(--gold-lt)">category</code>, reducing filtered queries
+        from O(n) full table scans to O(log n) B tree traversals. Extracted shared
+        cursor mapping helper and replaced magic number threshold with a named constant.
+      </p>
+      <p><em style="color:#6a7d94;">Course outcomes addressed: 3, 4</em></p>
+      <div class="card-links">
+        <a class="btn btn-gold" href="https://github.com/Villon43/villon34.github.io/blob/main/narratives/milestone3_narrative.docx" target="_blank">Read Narrative</a>
+      </div>
+    </div>
+
+    <!-- Milestone 4 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Databases</div>
+        <span class="card-tag">Milestone Four</span>
+      </div>
+      <p>
+        Migrated the database layer from SQLiteOpenHelper to Room, replacing raw SQL strings
+        with compiler validated <code style="color:var(--gold-lt)">@Query</code> annotations
+        and eliminating all manual cursor parsing. Defined
+        <code style="color:var(--gold-lt)">UserEntity</code>,
+        <code style="color:var(--gold-lt)">InventoryItemEntity</code>,
+        <code style="color:var(--gold-lt)">UserDao</code>,
+        <code style="color:var(--gold-lt)">InventoryItemDao</code>, and a repository layer
+        that preserves the ViewModel's public API unchanged. Replaced plaintext password
+        storage with BCrypt hashing at cost factor 12 eliminating the credential exposure 
+        vulnerability identified in the code review.
+      </p>
+      <p><em style="color:#6a7d94;">Course outcomes addressed: 4, 5</em></p>
+      <div class="card-links">
+        <a class="btn btn-gold" href="https://github.com/Villon43/villon34.github.io/blob/main/narratives/milestone4_narrative.docx" target="_blank">Read Narrative</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section id="outcomes">
+  <div class="section-label">Program Alignment</div>
+  <h2>Course Outcomes</h2>
+  <div class="outcomes">
+    <div class="outcome">
+      <div class="outcome-num">1</div>
+      <div class="outcome-text">
+        <strong>Collaborative Environments &amp; Decision Making</strong>
+        Addressed through ePortfolio planning, professional self assessment, Agile team
+        experience in CS 250, and the structured code review that surfaces findings for
+        instructor dialogue.
+      </div>
+    </div>
+    <div class="outcome">
+      <div class="outcome-num">2</div>
+      <div class="outcome-text">
+        <strong>Professional-Quality Communications</strong>
+        Developed through the code review script, three milestone narratives, six module
+        journal entries, and this ePortfolio.
+      </div>
+    </div>
+    <div class="outcome">
+      <div class="outcome-num">3</div>
+      <div class="outcome-text">
+        <strong>Algorithmic Principles &amp; Design Trade-offs</strong>
+        Met in Milestone Three through the JOIN optimization, index design, and explicit
+        analysis of read vs. write overhead trade offs. Also present in the MVVM refactor's
+        treatment of separation of concerns and single responsibility.
+      </div>
+    </div>
+    <div class="outcome">
+      <div class="outcome-num">4</div>
+      <div class="outcome-text">
+        <strong>Well-Founded Techniques &amp; Industry-Specific Goals</strong>
+        Met across all three milestones: MVVM + StateFlow + Jetpack Compose best practices
+        (Milestone Two); SQLite indexing and JOIN optimization (Milestone Three);
+        Room ORM and BCrypt (Milestone Four).
+      </div>
+    </div>
+    <div class="outcome">
+      <div class="outcome-num">5</div>
+      <div class="outcome-text">
+        <strong>Security Mindset &amp; Adversarial Thinking</strong>
+        Met in Milestone Four by identifying plaintext credential storage as an adversarial
+        exploit vector and implementing BCrypt hashing with constant time verification
+        to eliminate it. Also present throughout the code review's defensive programming analysis.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Dylan Leon &nbsp;·&nbsp; CS 499 Capstone &nbsp;·&nbsp; Southern New Hampshire University
+</footer>
+
+</body>
+</html>
